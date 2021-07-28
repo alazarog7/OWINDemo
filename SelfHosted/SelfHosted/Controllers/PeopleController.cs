@@ -16,26 +16,26 @@ namespace SelfHosted
             return PeopleService.GetPeople();
         }
 
-        // GET api/People/id
+        // GET api/People/{id}
         public Person Get(int id)
         {
             Person person = PeopleService.GetPerson(id);
             return PeopleService.GetPerson(id);
         }
 
-        // POST api/demo
+        // POST api/People
         public void Post(Person person)
         {
             PeopleService.AddPerson(person);
         }
 
-        // PUT api/demo/5 
+        // PUT api/People/{id}
         public void Put(int id, Person person)
         {
             PeopleService.UpdatePerson(id, person);
         }
 
-        // DELETE api/demo/5 
+        // DELETE api/People/{id}
         public void Delete(int id)
         {
             PeopleService.DeletePerson(id);
