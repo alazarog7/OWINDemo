@@ -24,21 +24,21 @@ namespace SelfHosted
         }
 
         // POST api/People
-        public void Post(Person person)
+        public Response Post(Person person)
         {
-            PeopleService.AddPerson(person);
+            return PeopleService.AddPerson(person);
         }
 
         // PUT api/People/{id}
-        public void Put(int id, Person person)
+        public Response Put(int id, Person person)
         {
-            PeopleService.UpdatePerson(id, person);
+            return PeopleService.UpdatePerson(id, person);
         }
 
         // DELETE api/People/{id}
-        public void Delete(int id)
+        public Response Delete(int id)
         {
-            PeopleService.DeletePerson(id);
+            return PeopleService.DeletePerson(id);
         }
     }
 }

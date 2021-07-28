@@ -73,6 +73,7 @@
     <Compile Include="PeopleService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Response.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

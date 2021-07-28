@@ -41,23 +41,41 @@ namespace SelfHosted
                 .Where(person => person.ID == id)
                 .FirstOrDefault();
         }
-        public static void AddPerson(Person person)
+        public static Response AddPerson(Person person)
         {
             peopleList.Add(person);
+            
+            return new Response {
+                Success = true,
+                Data = person.ID.ToString()
+            };
         }
-        public static void UpdatePerson(int id, Person personUpdate)
+        public static Response UpdatePerson(int id, Person personUpdate)
         {
             Person findPerson = peopleList
                 .Where(person => person.ID == id)
                 .FirstOrDefault();
-            if(findPerson != null)
+            if (findPerson != null)
             {
                 findPerson.Name = personUpdate.Name;
                 findPerson.DateOfBirth = personUpdate.DateOfBirth;
+                return new Response
+                {
+                    Success = true,
+                    Data = personUpdate.ID.ToString()
+                };
+            }
+            else
+            {
+                return new Response
+                {
+                    Success = false,
+                    Data = "Person not found"
+                };
             }
         }
 
-        public static void DeletePerson(int id)
+        public static Response DeletePerson(int id)
         {
             Person findPerson = peopleList
                 .Where(person => person.ID == id)
@@ -65,6 +83,19 @@ namespace SelfHosted
             if (findPerson != null)
             {
                 peopleList.Remove(findPerson);
+                return new Response
+                {
+                    Success = true,
+                    Data = ""
+                };
+            }
+            else
+            {
+                return new Response
+                {
+                    Success = false,
+                    Data = "Person not found"
+                };
             }
         }
     }
